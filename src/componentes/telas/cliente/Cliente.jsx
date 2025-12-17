@@ -38,16 +38,20 @@ function Cliente() {
     const [exibirForm, setExibirForm] = useState(false);
 	
     const [objeto, setObjeto] = useState({
-        codigo: "", nome: "", descricao: "", sigla: ""
+        codigo: "", nome: "" , descricao: "", telefone: "", ativo: "", data_cadastro: ""
     })    
 
     const novoObjeto = () => {
         setEditar(false);
         setAlerta({ status: "", message: "" });
         setObjeto({
-            codigo: 0,
-            nome: ""
-        });
+            codigo: "",
+            nome: "",
+            descricao: "",
+            telefone: "",
+            ativo: "",
+            data_cadastro: ""
+    });
 		setExibirForm(true);
     }
 
@@ -69,7 +73,7 @@ function Cliente() {
                 setEditar(true);
             }
         } catch (err) {
-            console.error(err.message);
+            console.log(err.message);
         }
         recuperaClientes();
     }

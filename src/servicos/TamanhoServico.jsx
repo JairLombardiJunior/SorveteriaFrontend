@@ -5,8 +5,8 @@ export const getTamanhosAPI = async () => {
         {
             method: "GET",
             headers: {
-                "Content-Type": "application/json"
-                //"authorization": getToken()
+                "Content-Type": "application/json",
+                "authorization": getToken()
             }
         })
     const data = await response.json()
@@ -19,7 +19,7 @@ export const getTamanhoPorCodigoAPI = async codigo => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-            //"authorization": getToken()
+            "authorization": getToken()
             }
         });
     const data = await response.json();
@@ -28,7 +28,7 @@ export const getTamanhoPorCodigoAPI = async codigo => {
 
 export const cadastraTamanhoAPI = async (objeto, metodo) => {
     const response = await fetch(`${process.env.REACT_APP_ENDERECO_API}/tamanho`, {
-        method: "POST",
+        method: metodo,
         headers: { "Content-Type": "application/json",
             "authorization": getToken() 
             },

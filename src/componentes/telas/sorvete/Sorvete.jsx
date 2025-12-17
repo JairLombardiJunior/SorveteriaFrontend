@@ -30,7 +30,7 @@ function Sorvete() {
 
     const [objeto, setObjeto] = useState({
         codigo: 0,
-        nome: "",
+        sabor: "",
         descricao: "",
         quantidade_estoque: "",
         valor: "",
@@ -44,7 +44,7 @@ function Sorvete() {
         setAlerta({ status: "", message: "" });
         setObjeto({
             codigo: 0,
-            nome: "",
+            sabor: "",
             descricao: "",
             quantidade_estoque: "",
             valor: "",
@@ -101,9 +101,11 @@ function Sorvete() {
             navigate("/login", { replace: true });
         }
     }
-    const recuperaTamanhos = async () => {
+    const recuperaTamanhos = async () => {;
+
         try {
             setListaTamanhos(await getTamanhosAPI());
+            console.log(listaTamanhos);
         } catch (err) {
             navigate("/login", { replace: true });
         }
@@ -120,8 +122,6 @@ function Sorvete() {
                 navigate("/login", { replace: true });
             }
         }
-
-
     }
 
     useEffect(() => {

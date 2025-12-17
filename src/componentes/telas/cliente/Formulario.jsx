@@ -9,8 +9,8 @@ import CampoEntradaTextArea from '../../comuns/CampoEntradaTextArea';
 
 function Formulario() {
 
+    
     const { objeto, handleChange, acaoCadastrar, alerta, exibirForm, setExibirForm } = useContext(ClienteContext);
-
     return (
         <Dialogo id="modalEdicao" titulo="Cliente"
             idform="formulario" acaoCadastrar={acaoCadastrar}
@@ -31,34 +31,23 @@ function Formulario() {
                     requerido={true} readonly={false}
                     maxCaracteres={40} />
             </Col>
+
             <Col xs={12} md={12}>
                 <CampoEntradaTextArea value={objeto.descricao}
                     id="txtDescricao" name="descricao" label="Desrição"
                     tipo="text" onchange={handleChange}
                     msgvalido="OK certo" msginvalido="Informe a descrição"
-                    requerido={false} readonly={false} />
-            </Col>
-            <Col xs={12} md={6}>
-                <CampoEntrada value={objeto.quantidade_estoque}
-                    id="txtEstoque" name="quantidade_estoque" label="Estoque"
-                    tipo="number" onchange={handleChange}
-                    msgvalido="OK certo" msginvalido="Informe a quantidade em estoque"
                     requerido={true} readonly={false} />
             </Col>
-            <Col xs={12} md={6}>
-                <CampoEntrada value={objeto.valor}
-                    id="txtValor" name="valor" label="Valor"
-                    tipo="number" onchange={handleChange}
-                    msgvalido="OK certo" msginvalido="Informe o valor"
+
+            <Col xs={12} md={12}>
+                <CampoEntradaTextArea value={objeto.telefone}
+                    id="txtTelefone" name="telefone" label="Telefone"
+                    tipo="text" onchange={handleChange}
+                    msgvalido="OK certo" msginvalido="Informe seu Telefone"
                     requerido={true} readonly={false} />
             </Col>
-            <Col xs={12} md={6}>
-                <CampoEntrada value={objeto.data_cadastro}
-                    id="txtDataCadastro" name="data_cadastro" label="Data de cadastro"
-                    tipo="date" onchange={handleChange}
-                    msgvalido="OK certo" msginvalido="Informe a data de cadastro"
-                    requerido={true} readonly={false} />
-            </Col>
+
             <Col xs={12} md={6}>
                 <CampoSelect value={objeto.ativo}
                     id="txtAtivo" name="ativo" label="Ativo"
@@ -68,6 +57,14 @@ function Formulario() {
                     <option value={true}>Sim</option>
                     <option value={false}>Não</option>
                 </CampoSelect>
+            </Col>
+
+            <Col xs={12} md={6}>
+                <CampoEntrada value={objeto.data_cadastro}
+                    id="txtDataCadastro" name="data_cadastro" label="Data de cadastro"
+                    tipo="date" onchange={handleChange}
+                    msgvalido="OK certo" msginvalido="Informe a data de cadastro"
+                    requerido={true} readonly={false} />
             </Col>
         </Dialogo>
     )

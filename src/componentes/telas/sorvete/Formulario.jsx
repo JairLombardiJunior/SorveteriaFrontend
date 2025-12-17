@@ -10,7 +10,8 @@ import CampoEntradaTextArea from '../../comuns/CampoEntradaTextArea';
 function Formulario() {
 
     const { objeto, handleChange, acaoCadastrar, alerta, exibirForm, setExibirForm, listaTamanhos } = useContext(SorveteContext);
-
+    console.log("Tamanho nome teste"); 
+    console.log(listaTamanhos);
     return (
         <Dialogo id="modalEdicao" titulo="Sorvete"
             idform="formulario" acaoCadastrar={acaoCadastrar}
@@ -24,10 +25,10 @@ function Formulario() {
                     maxCaracteres={5} />
             </Col>
             <Col xs={12} md={8}>
-                <CampoEntrada value={objeto.nome}
-                    id="txtNome" name="nome" label="Nome"
+                <CampoEntrada value={objeto.sabor}
+                    id="txtSabor" name="sabor" label="Sabor"
                     tipo="text" onchange={handleChange}
-                    msgvalido="OK certo" msginvalido="Informe o nome"
+                    msgvalido="OK certo" msginvalido="Informe o sabor"
                     requerido={true} readonly={false}
                     maxCaracteres={40} />
             </Col>
@@ -70,14 +71,14 @@ function Formulario() {
                 </CampoSelect>
             </Col>
             <Col xs={12} md={12}>
-                <CampoSelect value={objeto.Tamanho}
+                <CampoSelect value={objeto.tamanho}
                     id="txtTamanho" name="tamanho" label="Tamanho"
                     onchange={handleChange}
                     msgvalido="OK certo" msginvalido="Informe a tamanho"
                     requerido={true}>
-                    {listaTamanhos.map((cat) => (
-                        <option key={cat.codigo} value={cat.codigo}>
-                            {cat.nome}
+                    {listaTamanhos.map((tam) => (
+                        <option key={tam.codigo} value={tam.codigo}>
+                            {tam.nome}
                         </option>
                     ))}
                 </CampoSelect>

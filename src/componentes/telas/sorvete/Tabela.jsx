@@ -19,9 +19,9 @@ function Tabela() {
     { 
         usuario = null; 
     }
-    
+  
     const isAdmin = usuario && usuario.tipo === 'admin';
-
+    console.log(listaObjetos);
     return (
         <div style={{ padding: '20px' }}>
             <h1>Sorvetes</h1>
@@ -39,8 +39,8 @@ function Tabela() {
                                 textAlign: 'center'
                             }}>Ações</th>
                             <th>Código</th>
-                            <th>Nome</th>
-                            <th >Descrição</th>
+                            <th>Sabor</th>
+                            <th>Descrição</th>
                             <th>Estoque</th>
                             <th>Ativo</th>
                             <th>Valor</th>
@@ -60,7 +60,7 @@ function Tabela() {
                                     </Button>
                                 </td>
                                 <td>{objeto.codigo}</td>
-                                <td>{objeto.nome}</td>
+                                <td>{objeto.sabor}</td>
                                 <td>{objeto.descricao}</td>
                                 <td>{objeto.quantidade_estoque}</td>
                                 <td>{objeto.ativo ? 'SIM' : 'NÃO'}</td>

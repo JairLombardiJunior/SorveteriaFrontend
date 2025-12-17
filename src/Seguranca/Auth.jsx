@@ -16,10 +16,12 @@ export const getToken = () => {
         let decoded = jwtDecode(autenticacao.token);
 
         if (decoded.exp <= Math.floor(new Date() / 1000)) {
+            console.log("token expirado");
             logout();
             throw "Token expirado";
         }
-        else {return autenticacao.token;}
+        else 
+        {return autenticacao.token;}
     }
 }
 
@@ -39,16 +41,22 @@ export const getUsuario = () => {
             logout();
             throw "Token expirado";
         } else {
+            console.log("usuario");
+            console.log(decoded.usuario);
             return decoded.usuario;
         }
     }
 }
 
-export const login = (json) => { localStorage.setItem(NOMEAPP + '/auth', 
-    JSON.stringify(json)); }
+export const login = (json) => { 
+    localStorage.setItem(NOMEAPP + '/auth', 
+    JSON.stringify(json)); 
+}
 
-export const logout = () => { localStorage.setItem(NOMEAPP + '/auth', 
-    JSON.stringify({ "auth": false, "token": '' })); }
+export const logout = () => { 
+    localStorage.setItem(NOMEAPP + '/auth', 
+    JSON.stringify({ "auth": false, "token": '' })); 
+}
 
     
 /*

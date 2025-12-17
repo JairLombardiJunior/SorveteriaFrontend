@@ -27,7 +27,7 @@ function Tamanho() {
     const [exibirForm, setExibirForm] = useState(false);
 	
     const [objeto, setObjeto] = useState({
-        codigo: "", nome: "", descricao: "", sigla: ""
+        codigo: "", nome: ""
     })    
 
     const novoObjeto = () => {

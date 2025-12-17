@@ -16,6 +16,7 @@ export const getClientesAPI = async () => {
 export const getClientePorCodigoAPI = async (codigo) => {
     const response = await fetch(`${process.env.REACT_APP_ENDERECO_API}/cliente/${codigo}`,
         {
+            
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -26,14 +27,14 @@ export const getClientePorCodigoAPI = async (codigo) => {
     return data;
 }
 
-export const cadastraClienteAPI = async (cliente)/*(objeto, metodo)*/ => {
+export const cadastraClienteAPI = async (objeto, metodo) => {
     const response = await fetch(`${process.env.REACT_APP_ENDERECO_API}/cliente`, {
-        method: "POST",
+        method: metodo,
         headers: {
             "Content-Type": "application/json",
-            //"authorization": getToken() 
+            "authorization": getToken() 
         },
-        body: JSON.stringify(cliente),
+        body: JSON.stringify(objeto),
     })
     const data = await response.json();
     return data;

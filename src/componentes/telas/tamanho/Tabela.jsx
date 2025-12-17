@@ -4,12 +4,12 @@ import Alerta from '../../comuns/Alerta';
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
 import { getUsuario } from '../../../Seguranca/Auth.jsx';
-import SorveteContext from '../../telas/sorvete/SorveteContext';
+//import SorveteContext from '../../telas/sorvete/SorveteContext';
 
 
 function Tabela() {
     // Capturar as ações do contexto:
-    const { alerta, listaObjetos, remover, novoObjeto, editarObjeto } = useContext(SorveteContext);
+    const { alerta, listaObjetos, remover, novoObjeto, editarObjeto } = useContext(TamanhoContext);
 
     let usuario = null;
     try { 

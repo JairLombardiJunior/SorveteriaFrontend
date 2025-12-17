@@ -8,7 +8,7 @@ import { Modal, Button, Alert } from 'react-bootstrap';
 import FormularioUsuario from './telas/usuarios/FormularioUsuario.jsx';
 import { login, getToken } from '../Seguranca/Auth.jsx';
 import { criarUsuario } from '../servicos/UsuarioServico.jsx';
-//import Login from '../componentes/telas/login';
+//import Login from '../componentes/telas/login/Login.jsx;
 
 function MenuPublico() {
     const [showModalLogin, setShowModalLogin] = useState(false);
@@ -105,20 +105,21 @@ function MenuPublico() {
                         <Nav className="me-auto">
                             <NavLink className="nav-link" exact="true" to="/">Home</NavLink>
                             <NavLink className="nav-link" exact="true" to="/sobre">Sobre</NavLink>
-                            <NavLink className="nav-link" exact="true" to="/reviews">Reviews</NavLink>
+                            {/*<NavLink className="nav-link" exact="true" to="reviews">Reviews</NavLink>*/ }
                         </Nav>
                     </Navbar.Collapse>
 
                     <Navbar.Collapse className="justify-content-end">
                         <Nav>
                             <span className="nav-link active mx-2" style={{ cursor: 'pointer' }} onClick={() => setShowModalLogin(true)} >
-                                <span style={{ color: 'white', fontWeight: 'bold' }}>Entrar</span>
+                                <span style={{ color: 'black', fontWeight: 'bold' }}>Entrar</span>
                             </span>
                             <span className="nav-link active" style={{ cursor: 'pointer' }} onClick={() => setShowModalRegistro(true)} >
-                                <span style={{ color: 'white', fontWeight: 'bold' }}>Registrar</span>
+                                <span style={{ color: 'black', fontWeight: 'bold' }}>Registrar</span>
                             </span>
                         </Nav>
                     </Navbar.Collapse>
+
                 </Container>
             </Navbar>
 

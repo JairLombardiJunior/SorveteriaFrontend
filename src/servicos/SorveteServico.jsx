@@ -6,7 +6,7 @@ export const getSorvetesAPI = async () => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-            //"authorization": getToken()
+            "authorization": getToken()
             }
         })
     const data = await response.json()
@@ -19,18 +19,19 @@ export const getSorvetePorCodigoAPI = async (codigo) => {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-            //"authorization": getToken()
+            "authorization": getToken()
             }
         });
     const data = await response.json();
     return data;
 }
 
-export const cadastraSorveteAPI = async (sorvete)/*(objeto, metodo)*/ => {
+export const cadastraSorveteAPI = async (objeto, metodo) => {
     const response = await fetch(`${process.env.REACT_APP_ENDERECO_API}/sorvete`, {
-        method: "POST",
-            headers: { "Content-Type": "application/json", "authorization": getToken() },
-        body: JSON.stringify(sorvete)
+        method: metodo,
+            headers: { "Content-Type": "application/json", 
+                "authorization": getToken() },
+        body: JSON.stringify(objeto)
     })
     const data = await response.json();
     if (!response.ok) throw new Error(data.message || 'Erro ao criar leitura');

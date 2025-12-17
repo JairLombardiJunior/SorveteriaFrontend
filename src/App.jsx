@@ -9,7 +9,7 @@ import Sobre from "./componentes/telas/Sobre";
 import Tamanho from "./componentes/telas/tamanho/Tamanho";
 import Sorvete from "./componentes/telas/sorvete/Sorvete";
 import Cliente from "./componentes/telas/cliente/Cliente";
-import Pedidos from "./componentes/telas/pedidos/Pedidos";
+//import Pedidos from "./componentes/telas/pedidos/Pedidos";
 import Usuarios from "./componentes/telas/usuarios/Usuarios";
 import MenuPublico from "./componentes/MenuPublico";
 import MenuPrivado from "./componentes/MenuPrivado";
@@ -41,30 +41,26 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <Home/>,
       },
       {
         path : "sobre",
         element : <Sobre/>
       }, 
       {
-        path: "tamanhos",
-        element: <Tamanho />,
+        path: "tamanho",
+        element: <Tamanho/>,
       }
       ,
       {
-        path: "sorvetes",
-        element: <Sorvete />,
+        path: "sorvete",
+        element: <Sorvete/>,
       }
       ,
       {
-        path: "clientes",
-        element: <Cliente />,
+        path: "cliente",
+        element: <Cliente/>,
       } ,
-      {
-        path: "pedidos",
-        element: <Pedidos/>,
-      },
       {
         path: "usuarios",
         element: <Usuarios/>,
@@ -82,6 +78,11 @@ function App() {
 
 export default App;
 
+
+/* {
+  path: "pedidos",
+  element: <Pedidos/>,
+}, */
 /*import React from 'react';
 import logo from './logo.svg';
 import './App.css';

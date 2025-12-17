@@ -5,16 +5,21 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink, Outlet, Navigate } from 'react-router-dom';
 import { getUsuario, logout } from '../Seguranca/Auth.jsx';
 
+
 function MenuPrivado() {
 
     let usuario = null;
-    try { usuario = getUsuario(); }
-    catch (error) { usuario = null; }
+    //try { usuario = getUsuario(); }
+    //catch (error) { usuario = null; }
+    usuario = getUsuario();
+    console.log(usuario);
 
     if (!usuario) return <Navigate to="/login" replace />;
-
+    
     return (
         <>
+            {usuario === null ? 
+            <Navigate to="/login" replace />  :   
             <Navbar expand="lg" className="bg-body-tertiary navbar-custom">
                 <Container>
                     <NavLink className="navbar-brand" exact="true" to="/admin">eLibrary</NavLink>
@@ -22,30 +27,35 @@ function MenuPrivado() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
                             <NavLink className="nav-link" exact="true" to="/admin">Home</NavLink>
-                            <NavLink className="nav-link" exact="true" to="sobre">Sobre</NavLink>
-                            <NavLink className="nav-link" exact="true" to="reviews">Reviews</NavLink>
+                            <NavLink className="nav-link" exact="true" to="sobre">Sobre</NavLink>   
 
                             {usuario &&
                                 <NavDropdown title={<><i className="bi bi-tools me-1"></i> Cadastros </>} id="basic-nav-dropdown">
-                                    <NavLink className="dropdown-item" exact="true" to="autores"><i className="bi bi-person-badge me-2" />Autores </NavLink>
-                                    <NavLink className="dropdown-item" exact="true" to="generos"><i className="bi bi-tags me-2" />Gêneros</NavLink>
-                                    <NavLink className="dropdown-item" exact="true" to="usuarios"><i className="bi bi-people me-2" />Usuários</NavLink>
+                                    <NavLink className="dropdown-item" exact="true" to="cliente"><i className="bi bi-person-badge me-2" />Clientes </NavLink>
+                                    <NavLink className="dropdown-item" exact="true" to="sorvete"><i className="bi bi-people me-2" />sorvetes</NavLink>
+                                    <NavLink className="dropdown-item" exact="true" to="tamanho"><i className="bi bi-people me-2" />tamanhos</NavLink>
                                 </NavDropdown>
                             }
 
                         </Nav>
                     </Navbar.Collapse>
 
-                    <Navbar.Collapse className="justify-content-end">
-                        <NavDropdown title={usuario ? <span style={{ color: 'white' }}>Olá, <b>{usuario.name}</b>!</span> : "Usuário"} id="basic-nav-dropdown">
-                            {usuario ? <NavLink className="dropdown-item" exact="true" to="/" onClick={() => logout()}>Logout</NavLink>
-                                : <NavLink className="dropdown-item" exact="true" to="/login">login</NavLink>
+                    <Navbar.Collapse className="justify-content-end">                        
+                        <NavDropdown title={usuario ? "Logado " + usuario.email : "Usuário"} id="basic-nav-dropdown">
+                            {usuario ?
+                                <NavLink className="dropdown-item" exact="true"
+                                    to="/" onClick={() => logout()}>Logout</NavLink>
+                                :
+                                <NavLink className="dropdown-item" exact="true"
+                                    to="/login">login</NavLink>
                             }
                         </NavDropdown>
                     </Navbar.Collapse>
+
                 </Container>
-            </Navbar>
+            </Navbar>}
             <Outlet />
+        
         </>
     );
 }
@@ -249,6 +259,10 @@ function MenuPrivado() {
                                         <i className="bi bi-people me-2" />Usuários
                                     </NavLink>
                                 )}
+
+                                    
+                                    <NavLink className="dropdown-item" exact="true" to="pedidos"><i className="bi bi-tags me-2" />Pedidos</NavLink>
+
                             </NavDropdown>
 
                         </Nav>
@@ -295,4 +309,14 @@ function MenuPrivado() {
     );
 }
 
-export default MenuPrivado;*/
+export default MenuPrivado;
+
+<Navbar.Collapse className="justify-content-end">
+                        <NavDropdown title={usuario ? <span style={{ color: 'black' }}>Olá, <b>{usuario.name}</b>!</span> : "Usuário"} id="basic-nav-dropdown">
+                            {usuario ? <NavLink className="dropdown-item" exact="true" to="/" onClick={() => logout()}>Logout</NavLink>
+                                : <NavLink className="dropdown-item" exact="true" to="/login">login</NavLink>
+                            }
+                        </NavDropdown>
+                    </Navbar.Collapse>
+
+*/

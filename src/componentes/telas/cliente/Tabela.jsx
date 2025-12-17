@@ -3,7 +3,7 @@ import ClienteContext from './ClienteContext';
 import Alerta from '../../comuns/Alerta';
 import Table from 'react-bootstrap/Table';
 import { Button } from 'react-bootstrap';
-import { formatoMoeda } from '../../comuns/Uteis'
+//import { formatoMoeda } from '../../comuns/Uteis'
 import { getUsuario } from '../../../Seguranca/Auth';
 
 
@@ -40,12 +40,10 @@ function Tabela() {
                             }}>Ações</th>
                             <th>Código</th>
                             <th>Nome</th>
-                            <th >Descrição</th>
-                            <th>Estoque</th>
+                            <th>Descrição</th>
+                            <th>Telefone</th>
                             <th>Ativo</th>
-                            <th>Valor</th>
                             <th>Data Cadastro</th>
-                            <th>Tamanho</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,11 +60,9 @@ function Tabela() {
                                 <td>{objeto.codigo}</td>
                                 <td>{objeto.nome}</td>
                                 <td>{objeto.descricao}</td>
-                                <td>{objeto.quantidade_estoque}</td>
+                                <td>{objeto.telefone}</td>
                                 <td>{objeto.ativo ? 'SIM' : 'NÃO'}</td>
-                                <td>{formatoMoeda(objeto.valor)}</td>
                                 <td>{objeto.data_cadastro}</td>
-                                <td>{objeto.tamanho_nome}</td>
                             </tr>
                         ))}
                     </tbody>
